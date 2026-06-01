@@ -1,7 +1,9 @@
 # Odysseus
 ───────────────────────────────────────────────
- ⊹ ࣪ ˖ ૮( ˶ᵔ ᵕ ᵔ˶ )っ  Odysseus vers. 1.0
+ ⊹ ࣪ ˖ ૮( ˶ᵔ ᵕ ᵔ˶ )っ  Odysseus v1.0.0
 ───────────────────────────────────────────────
+
+[![Changelog](CHANGELOG.md)](#)
 
 ![Odysseus](docs/odysseus.jpg)
 
@@ -159,13 +161,13 @@ do not run on macOS. MLX-only models are not served by Odysseus.
 
 ### Native Windows
 
-**One-command launcher** (creates the venv, installs deps, runs setup, starts the
-server; safe to re-run):
+**One-click launcher** (double-click `start.bat` — auto-creates venv, installs
+deps, starts the server):
 
-```powershell
+```bat
 git clone https://github.com/pewdiepie-archdaemon/odysseus.git
 cd odysseus
-powershell -ExecutionPolicy Bypass -File .\launch-windows.ps1
+start.bat
 ```
 
 Or do it by hand:
@@ -176,7 +178,6 @@ cd odysseus
 python -m venv venv
 venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-python setup.py
 python -m uvicorn app:app --host 127.0.0.1 --port 7000
 ```
 
@@ -188,8 +189,8 @@ Local GPU *serving* of vLLM/SGLang needs Linux/WSL2; for a local model on Window
 [Ollama](https://ollama.com/download) is the easiest path — point Odysseus at
 `http://localhost:11434/v1` in Settings.
 
-Open `http://localhost:7000`, log in with the generated admin password,
-and configure everything else inside **Settings**.
+Open `http://localhost:7000`, log in with the default credentials **`admin` / `admin1234`**,
+and configure everything else inside **Settings**. (Change the password after first login.)
 
 ## Security Notes
 Odysseus is a self-hosted workspace with powerful local tools: shell access, file uploads, model downloads, web research, email/calendar integrations, and API tokens. Treat it like an admin console.

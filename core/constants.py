@@ -1,8 +1,12 @@
-# src/constants.py
+# core/constants.py
 """Application-wide constants and configuration values."""
 import os
+import tomllib
+import pathlib
 
-APP_VERSION = "0.9.1"
+# Read version from pyproject.toml (single source of truth)
+_pyproject = pathlib.Path(__file__).parent.parent / "pyproject.toml"
+APP_VERSION = tomllib.loads(_pyproject.read_text("utf-8"))["project"]["version"]
 
 # Base paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/"

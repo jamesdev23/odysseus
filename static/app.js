@@ -56,7 +56,15 @@ const _origFetch = window.fetch;
 window.fetch = async function(...args) {
   const res = await _origFetch.apply(this, args);
   if (res.status === 401 && !String(args[0]).includes('/api/auth/')) {
-    window.location.href = '/login';
+    res.clone().json().then(data => {
+      if (data && data.error === 'Setup required') {
+        window.location.href = '/login';
+      } else {
+        window.location.href = '/login';
+      }
+    }).catch(() => {
+      window.location.href = '/login';
+    });
   }
   return res;
 };

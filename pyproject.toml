@@ -1,3 +1,7 @@
+[project]
+name = "odysseus"
+version = "1.1.0"
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
